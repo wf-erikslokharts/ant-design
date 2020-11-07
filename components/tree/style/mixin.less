@@ -21,6 +21,7 @@
 .drop-indicator() {
   .@{tree-prefix-cls}-drop-indicator {
     position: absolute;
+    // it should displayed over the following node
     z-index: 1;
     height: 2px;
     background-color: @primary-color;
@@ -177,6 +178,7 @@
   // >>> Title
   & &-node-content-wrapper {
     position: relative;
+    z-index: auto;
     min-height: @tree-title-height;
     margin: 0;
     padding: 0 4px;
@@ -185,7 +187,7 @@
     background: transparent;
     border-radius: @border-radius-base;
     cursor: pointer;
-    transition: all 0.3s, border 0, line-height 0, box-shadow 0;
+    transition: all 0.3s, border 0s, line-height 0s, box-shadow 0s;
 
     &:hover {
       background-color: @tree-node-hover-bg;
@@ -250,7 +252,6 @@
 
     // ============== Cover Background ==============
     .@{custom-tree-prefix-cls}-switcher {
-      z-index: 1;
       background: @component-background;
 
       &-line-icon {
