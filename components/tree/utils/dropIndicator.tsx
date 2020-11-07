@@ -1,5 +1,7 @@
 import React from 'react';
 
+export const offset = 4;
+
 export default function dropIndicatorRender(props: {
   dropPosition: -1 | 0 | 1;
   dropLevelOffset: number;
@@ -10,7 +12,6 @@ export default function dropIndicatorRender(props: {
   const { dropPosition, dropLevelOffset, prefixCls, indent, direction } = props;
   const startPosition = direction === 'ltr' ? 'left' : 'right';
   const endPosition = direction === 'ltr' ? 'right' : 'left';
-  const offset = 4;
   const style: React.CSSProperties = {
     [startPosition]: -dropLevelOffset * indent + offset,
     [endPosition]: 0,

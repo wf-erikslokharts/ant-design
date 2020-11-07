@@ -1,5 +1,5 @@
 import { mount } from 'enzyme';
-import dropIndicatorRender from '../utils/dropIndicator';
+import dropIndicatorRender, { offset } from '../utils/dropIndicator';
 
 describe('dropIndicatorRender', () => {
   it('work with dropPosition before (1)', () => {
@@ -23,7 +23,7 @@ describe('dropIndicatorRender', () => {
     });
     const wrapper = mount(indicator);
     expect(wrapper.props().style.bottom).toEqual(-3);
-    expect(wrapper.props().style.left).toEqual(24 - 10);
+    expect(wrapper.props().style.left).toEqual(24 + offset);
   });
   it('work with dropPosition after (-1)', () => {
     const indicator = dropIndicatorRender({
@@ -45,7 +45,7 @@ describe('dropIndicatorRender', () => {
       direction: 'ltr',
     });
     const wrapper = mount(indicator);
-    expect(wrapper.props().style.left).toEqual(-2 * 24 - 10);
+    expect(wrapper.props().style.left).toEqual(-2 * 24 + offset);
   });
   it('work with drop level (rtl)', () => {
     const indicator = dropIndicatorRender({
@@ -56,6 +56,6 @@ describe('dropIndicatorRender', () => {
       direction: 'rtl',
     });
     const wrapper = mount(indicator);
-    expect(wrapper.props().style.right).toEqual(-2 * 24 - 10);
+    expect(wrapper.props().style.right).toEqual(-2 * 24 + offset);
   });
 });
