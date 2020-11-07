@@ -10,8 +10,9 @@ export default function dropIndicatorRender(props: {
   const { dropPosition, dropLevelOffset, prefixCls, indent, direction } = props;
   const startPosition = direction === 'ltr' ? 'left' : 'right';
   const endPosition = direction === 'ltr' ? 'right' : 'left';
+  const offset = 4;
   const style: React.CSSProperties = {
-    [startPosition]: -dropLevelOffset * indent - 10,
+    [startPosition]: -dropLevelOffset * indent + offset,
     [endPosition]: 0,
   };
   switch (dropPosition) {
@@ -23,7 +24,7 @@ export default function dropIndicatorRender(props: {
       break;
     case 0:
       style.bottom = -3;
-      style[startPosition] = indent - 10;
+      style[startPosition] = indent + offset;
       break;
     default:
       break;
